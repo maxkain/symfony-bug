@@ -2,16 +2,16 @@
 
 namespace App\EventSubscriber;
 
-use App\Repository\AnyEntityRepository;
+use App\Entity\AnyEntity;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Events;
 
 class AnyEventSubscriber1 implements EventSubscriber
 {
-    public function __construct(EntityManagerInterface $em, AnyEntityRepository $anyEntityRepository)
+    public function __construct(EntityManagerInterface $em)
     {
-
+        $em->getRepository(AnyEntity::class);
     }
 
     public function getSubscribedEvents()
